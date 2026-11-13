@@ -1,19 +1,18 @@
 # Tic-Tac-Toe AI: An Intelligent Game Agent Using Minimax and Alpha-Beta Pruning
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![React Version](https://img.shields.io/badge/react-19.0-61dafb.svg)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/typescript-5.7-3178c6.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/vite-6.2-646cff.svg)](https://vite.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-4.0-38bdf8.svg)](https://tailwindcss.com/)
-[![Testing Framework](https://img.shields.io/badge/tests-pytest%20(18%20passed)-success.svg)](https://pytest.org/)
-[![Game Theory](https://img.shields.io/badge/theory-Zermelo's%20Theorem-orange.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![React Version](https://img.shields.io/badge/react-19.0-23272f.svg?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/typescript-5.7-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/vite-6.2-646CFF.svg?logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-4.0-06B6D4.svg?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Tests](https://img.shields.io/badge/tests-18%20passed-22c55e.svg)](https://pytest.org/)
+[![License](https://img.shields.io/badge/license-MIT-gray.svg)](LICENSE)
 
-> A production-grade, demo-ready artificial intelligence project implementing optimal game-theoretic decision making for Tic-Tac-Toe using the Minimax decision rule with Alpha-Beta ($\alpha$-$\beta$) pruning, complemented by a world-class React 19 + TypeScript interactive web GUI (Linear / Raycast / Vercel design system) and empirical Monte Carlo verification.
+An implementation of optimal game-theoretic decision making for Tic-Tac-Toe using the Minimax decision rule with Alpha-Beta ($\alpha$-$\beta$) pruning. Includes both a client-side React 19 + TypeScript web interface with real-time tree-search telemetry, and a modular Python reference implementation with automated test suites and Monte Carlo empirical verification.
 
 ---
 
-## 📖 Theoretical & Academic Foundations
+## Theoretical & Academic Foundations
 
 Guided by foundational literature in game theory and adversarial search (*Swaminathan et al. 2020*, *Kalyan & Singh 2025*, and *Russell & Norvig / Berkeley CS188*):
 
@@ -48,9 +47,9 @@ When evaluating a child node, if $\beta \le \alpha$, search on that branch is pr
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
-The codebase follows modular, production-ready software engineering standards across both the modern React + TypeScript web application and the Python adversarial search engine:
+The codebase follows modular software engineering standards across both the React + TypeScript web application and the Python adversarial search engine:
 
 ```text
 Tic-Tac-Toe-AI/
@@ -66,10 +65,10 @@ Tic-Tac-Toe-AI/
 │   ├── App.tsx                 # Responsive dual-column dashboard shell
 │   ├── index.css               # Design tokens, dark theme variables, custom scrollbars
 │   ├── components/             # Reusable UI components
-│   │   ├── Header.tsx          # Precision top navbar with repository links & badges
+│   │   ├── Header.tsx          # Top navbar with repository links & badges
 │   │   ├── GameBoard.tsx       # 3×3 interactive grid container
 │   │   ├── Cell.tsx            # Fluid, tactile cell button with ghost preview & win glow
-│   │   ├── Marks.tsx           # Precision SVG geometric vectors for X & O
+│   │   ├── Marks.tsx           # SVG geometric vectors for X & O
 │   │   ├── GameStatus.tsx      # Real-time state pill with micro-pulse indicators
 │   │   ├── ControlBar.tsx      # Restart, Play as X/O toggle, AI/PvP mode selector
 │   │   ├── MetricsBar.tsx      # Real-time telemetry (latency, nodes, cutoffs, game value)
@@ -99,9 +98,9 @@ Tic-Tac-Toe-AI/
 
 ---
 
-## ⚡ Quickstart & Installation
+## Quickstart & Installation
 
-### Option A: Modern React + TypeScript Web App (Recommended)
+### Option A: React + TypeScript Web Application (Recommended)
 
 1. **Install Node Dependencies:**
 ```bash
@@ -130,7 +129,6 @@ node --experimental-strip-types src/lib/ai/verifyEngine.ts
 ### Option B: Python CLI & Test Suite
 
 1. **Prerequisites & Virtual Environment:**
-Ensure Python 3.8+ is installed:
 ```bash
 python --version
 pip install -r requirements.txt
@@ -151,17 +149,9 @@ python experiments/simulate.py
 streamlit run src/ui.py
 ```
 
-Features included in the web interface:
-- **Responsive 3×3 Grid**: Clean clickable buttons with real-time mark placement.
-- **Instant AI Responses**: Sub-millisecond Minimax counter-moves.
-- **Live State Metrics**: Sidebar tracking empty cells, moves played, and turn status.
-- **Dynamic Status Alerts**: Color-coded banners for wins, defeats, and draws.
-- **Move Audit Trail**: Expandable history log detailing every action taken in the session.
-- **One-Click Reset**: Instant reinitialization to an empty board.
-
 ---
 
-## 🧪 Automated Unit & Integration Tests
+## Automated Unit & Integration Tests
 
 The project includes an 18-test automated test suite using `pytest`:
 
@@ -194,7 +184,7 @@ python -m pytest -v
 
 ---
 
-## 📊 Empirical Verification & Monte Carlo Proof
+## Empirical Verification & Monte Carlo Proof
 
 To prove the AI's unbeatability in practice, `experiments/simulate.py` runs 210 simulated matches across three configurations:
 
@@ -213,7 +203,7 @@ python experiments/simulate.py
 
 ---
 
-## 📚 References & Literature Citations
+## References & Literature Citations
 
 1. **Zermelo, E.** (1913). *Über eine Anwendung der Mengenlehre auf die Theorie des Schachspiels*. Proceedings of the Fifth International Congress of Mathematicians, 2, 501–504.
 2. **Russell, S., & Norvig, P.** (2020). *Artificial Intelligence: A Modern Approach* (4th ed.). Pearson. Chapter 5: Adversarial Search and Games.
@@ -223,5 +213,5 @@ python experiments/simulate.py
 
 ---
 
-## 📄 License
+## License
 This project is open-source and available under the [MIT License](LICENSE).
