@@ -1,12 +1,15 @@
 # Tic-Tac-Toe AI: An Intelligent Game Agent Using Minimax and Alpha-Beta Pruning
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![React Version](https://img.shields.io/badge/react-19.0-61dafb.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/typescript-5.7-3178c6.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/vite-6.2-646cff.svg)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-4.0-38bdf8.svg)](https://tailwindcss.com/)
 [![Testing Framework](https://img.shields.io/badge/tests-pytest%20(18%20passed)-success.svg)](https://pytest.org/)
-[![UI Framework](https://img.shields.io/badge/gui-streamlit-red.svg)](https://streamlit.io/)
 [![Game Theory](https://img.shields.io/badge/theory-Zermelo's%20Theorem-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
-> A production-grade, demo-ready artificial intelligence project implementing optimal game-theoretic decision making for Tic-Tac-Toe using the Minimax decision rule with Alpha-Beta ($\alpha$-$\beta$) pruning, complemented by an interactive Streamlit web GUI and empirical Monte Carlo verification.
+> A production-grade, demo-ready artificial intelligence project implementing optimal game-theoretic decision making for Tic-Tac-Toe using the Minimax decision rule with Alpha-Beta ($\alpha$-$\beta$) pruning, complemented by a world-class React 19 + TypeScript interactive web GUI (Linear / Raycast / Vercel design system) and empirical Monte Carlo verification.
 
 ---
 
@@ -47,19 +50,43 @@ When evaluating a child node, if $\beta \le \alpha$, search on that branch is pr
 
 ## 🏗️ System Architecture
 
-The codebase follows modular, production-ready software engineering standards:
+The codebase follows modular, production-ready software engineering standards across both the modern React + TypeScript web application and the Python adversarial search engine:
 
 ```text
 Tic-Tac-Toe-AI/
 ├── .gitignore                  # Git artifact isolation
-├── requirements.txt            # Pinned dependencies
-├── README.md                   # Project documentation & theory
+├── package.json                # React 19, Vite, TypeScript, Tailwind CSS, Lucide dependencies
+├── tsconfig.json               # Strict TypeScript configuration
+├── vite.config.ts              # Vite + Tailwind v4 bundler configuration
+├── index.html                  # HTML entry point with Inter & JetBrains Mono typography
+├── requirements.txt            # Python dependencies (pytest, streamlit)
+├── README.md                   # Project documentation & theoretical foundation
 ├── src/
-│   ├── __init__.py             # Package marker
-│   ├── game.py                 # Core engine (TicTacToe board state & rule validation)
-│   ├── ai.py                   # Adversarial search (Minimax with Alpha-Beta pruning)
-│   ├── utils.py                # Symbols, winning triplets, formatting helpers
-│   └── ui.py                   # Modern interactive Streamlit web GUI
+│   ├── main.tsx                # React application entry point
+│   ├── App.tsx                 # Responsive dual-column dashboard shell
+│   ├── index.css               # Design tokens, dark theme variables, custom scrollbars
+│   ├── components/             # Reusable UI components
+│   │   ├── Header.tsx          # Precision top navbar with repository links & badges
+│   │   ├── GameBoard.tsx       # 3×3 interactive grid container
+│   │   ├── Cell.tsx            # Fluid, tactile cell button with ghost preview & win glow
+│   │   ├── Marks.tsx           # Precision SVG geometric vectors for X & O
+│   │   ├── GameStatus.tsx      # Real-time state pill with micro-pulse indicators
+│   │   ├── ControlBar.tsx      # Restart, Play as X/O toggle, AI/PvP mode selector
+│   │   ├── MetricsBar.tsx      # Real-time telemetry (latency, nodes, cutoffs, game value)
+│   │   ├── MoveHistory.tsx     # Chronological move ledger with per-move AI stats
+│   │   └── ArchitecturePanel.tsx # Collapsible theoretical reference & academic citations
+│   ├── hooks/
+│   │   └── useGameState.ts     # React game state hook & AI turn scheduler
+│   ├── lib/
+│   │   ├── utils.ts            # Class merging utility (clsx + tailwind-merge)
+│   │   └── ai/
+│   │       ├── types.ts        # Domain types (Player, Cell, Board, AIMetrics, GameStatus)
+│   │       ├── engine.ts       # TypeScript Minimax + Alpha-Beta search engine
+│   │       └── verifyEngine.ts # Standalone automated verification test suite
+│   ├── game.py                 # Python core engine (TicTacToe board state & rule validation)
+│   ├── ai.py                   # Python adversarial search (Minimax with Alpha-Beta pruning)
+│   ├── utils.py                # Python symbols, winning triplets, formatting helpers
+│   └── ui.py                   # Legacy Python Streamlit web GUI
 ├── tests/
 │   ├── __init__.py             # Test package marker
 │   ├── test_game.py            # Unit tests for game rules, moves, wins & draws
@@ -74,29 +101,52 @@ Tic-Tac-Toe-AI/
 
 ## ⚡ Quickstart & Installation
 
-### 1. Prerequisites
-Ensure Python 3.8+ is installed on your system:
+### Option A: Modern React + TypeScript Web App (Recommended)
+
+1. **Install Node Dependencies:**
 ```bash
-python --version
+npm install
 ```
 
-### 2. Clone the Repository
+2. **Launch Development Server:**
 ```bash
-git clone https://github.com/Atharv-2314/Tic-Tac-Toe-AI-An-Intelligent-Game-Agent-Using-Minimax-and-Alpha-Beta-Pruning.git
-cd Tic-Tac-Toe-AI-An-Intelligent-Game-Agent-Using-Minimax-and-Alpha-Beta-Pruning
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+3. **Production Build & Lint:**
+```bash
+npm run build
+npm run lint
 ```
 
-### 3. Install Dependencies
+4. **Run TypeScript AI Engine Verification:**
 ```bash
-pip install -r requirements.txt
+node --experimental-strip-types src/lib/ai/verifyEngine.ts
 ```
 
 ---
 
-## 🎮 Launching the Interactive GUI
+### Option B: Python CLI & Test Suite
 
-Start the Streamlit web application:
+1. **Prerequisites & Virtual Environment:**
+Ensure Python 3.8+ is installed:
+```bash
+python --version
+pip install -r requirements.txt
+```
 
+2. **Run Python Unit & Integration Tests (18 tests):**
+```bash
+python -m pytest -v
+```
+
+3. **Run Monte Carlo Simulation (210 matches):**
+```bash
+python experiments/simulate.py
+```
+
+4. **Launch Streamlit GUI:**
 ```bash
 streamlit run src/ui.py
 ```

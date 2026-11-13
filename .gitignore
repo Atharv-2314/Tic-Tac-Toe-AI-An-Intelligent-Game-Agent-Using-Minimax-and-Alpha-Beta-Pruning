@@ -14,8 +14,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -43,6 +43,18 @@ htmlcov/
 Thumbs.db
 desktop.ini
 
+# Node / Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+*.tsbuildinfo
+
+# Internal Implementation Tracking
+IMPLEMENTATION_PLAN.md
+
 # IDEs
 .idea/
 .vscode/
+
