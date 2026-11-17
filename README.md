@@ -1,5 +1,15 @@
 # Tic-Tac-Toe AI: An Intelligent Game Agent Using Minimax and Alpha-Beta Pruning
 
+### Group No: 25
+**Team Members:**
+- Aarnav Arya (2410110008)
+- Adwit Gautam (2410110026)
+- Akshaj Singh (2410110038)
+- Atharv Kumar (2410110086)
+- Aditya Verma (2410110398)
+- Divya Mani Tripathi (2410110420)
+- Devesh Kumar Singh (2410110537)
+
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![React Version](https://img.shields.io/badge/react-19.0-23272f.svg?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/typescript-5.7-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -58,7 +68,7 @@ Tic-Tac-Toe-AI/
 ├── tsconfig.json               # Strict TypeScript configuration
 ├── vite.config.ts              # Vite + Tailwind v4 bundler configuration
 ├── index.html                  # HTML entry point with Inter & JetBrains Mono typography
-├── requirements.txt            # Python dependencies (pytest, streamlit)
+├── requirements.txt            # Python dependencies (pytest)
 ├── README.md                   # Project documentation & theoretical foundation
 ├── src/
 │   ├── main.tsx                # React application entry point
@@ -84,8 +94,7 @@ Tic-Tac-Toe-AI/
 │   │       └── verifyEngine.ts # Standalone automated verification test suite
 │   ├── game.py                 # Python core engine (TicTacToe board state & rule validation)
 │   ├── ai.py                   # Python adversarial search (Minimax with Alpha-Beta pruning)
-│   ├── utils.py                # Python symbols, winning triplets, formatting helpers
-│   └── ui.py                   # Legacy Python Streamlit web GUI
+│   └── utils.py                # Python symbols, winning triplets, formatting helpers
 ├── tests/
 │   ├── __init__.py             # Test package marker
 │   ├── test_game.py            # Unit tests for game rules, moves, wins & draws
@@ -134,9 +143,11 @@ python --version
 pip install -r requirements.txt
 ```
 
-2. **Run Python Unit & Integration Tests (18 tests):**
+2. **Run Python Unit & Integration Tests:**
 ```bash
 python -m pytest -v
+python -m pytest tests/test_ai.py -v
+python -m pytest tests/test_game.py -v
 ```
 
 3. **Run Monte Carlo Simulation (210 matches):**
@@ -144,19 +155,21 @@ python -m pytest -v
 python experiments/simulate.py
 ```
 
-4. **Launch Streamlit GUI:**
-```bash
-streamlit run src/ui.py
-```
-
 ---
 
 ## Automated Unit & Integration Tests
 
-The project includes an 18-test automated test suite using `pytest`:
+The project includes an automated test suite using `pytest`:
 
 ```bash
+# Run all tests
 python -m pytest -v
+
+# Run AI-specific tests with verbose output
+python -m pytest tests/test_ai.py -v
+
+# Run Game Engine tests with verbose output
+python -m pytest tests/test_game.py -v
 ```
 
 ### Test Coverage Breakdown
